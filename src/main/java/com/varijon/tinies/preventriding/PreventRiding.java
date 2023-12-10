@@ -7,6 +7,8 @@ import net.minecraft.util.ActionResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.varijon.tinies.mixin.RideCooldownAccessor;
+
 public class PreventRiding implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
@@ -16,9 +18,10 @@ public class PreventRiding implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		EntityMountCallback.EVENT.register((entity) -> {	    
-		    
+		    LOGGER.info("test");
 			if(!(entity instanceof PlayerEntity))
 		    {  
+				((RideCooldownAccessor)(Object) entity).setRideCooldown(120);
 		    	return ActionResult.FAIL;
 		    }
 		    return ActionResult.PASS;

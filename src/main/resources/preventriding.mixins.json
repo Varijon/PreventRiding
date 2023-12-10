@@ -3,7 +3,8 @@
 	"package": "com.varijon.tinies.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"EntityMixin"
+		"EntityMixin",
+		"RideCooldownAccessor"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -13,7 +13,8 @@ import net.minecraft.util.ActionResult;
 @Mixin(Entity.class)
 public class EntityMixin 
 {
- 	@Inject(method = "startRiding", at = @At("HEAD"), cancellable = true)
+// 	@Inject(method = "startRiding", at = @At("HEAD"), cancellable = true)
+	@Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;hasVehicle()Z"), method = "startRiding(Lnet/minecraft/entity/Entity;Z)Z", cancellable = true)
     public void onRide(CallbackInfoReturnable<Boolean> ci) {
         ActionResult result = EntityMountCallback.EVENT.invoker().doRiding((Entity) (Object) this);
  
