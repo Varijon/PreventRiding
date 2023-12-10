@@ -17,8 +17,7 @@ public class PreventRiding implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		EntityMountCallback.EVENT.register((entity) -> {	    
-		    LOGGER.info("test");
+		EntityMountCallback.EVENT.register((entity) -> {	
 			if(!(entity instanceof PlayerEntity))
 		    {  
 				((RideCooldownAccessor)(Object) entity).setRideCooldown(120);
